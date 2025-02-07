@@ -1,4 +1,5 @@
 import express, { Request, Response } from "express"
+import cors from "cors"
 import { Constants } from "./config/constants"
 import errorHandlerMiddleware from "./middlewares/error-handler.middleware"
 import responseWrapper from "./middlewares/response-wrapper.middleware"
@@ -12,6 +13,7 @@ app.use(express.json({ limit: Constants.MAX_REQUEST_SIZE }))
 app.use(
   express.urlencoded({ extended: true, limit: Constants.MAX_REQUEST_SIZE })
 )
+app.use(cors())
 
 // Response wrapper
 app.use(responseWrapper)
