@@ -7,6 +7,7 @@ export const findAll = async (req: Request, res: Response) => {
 
 export const create = async (req: Request, res: Response) => {
   const { title, content } = req.body
-  notes.push({ title, content })
-  res.success({ title, content })
+  const note = { title, content }
+  notes.push(note)
+  res.success({ note })
 }
